@@ -12,7 +12,7 @@ Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e 
 MILESTONE 2: (OK)
 Stampare le stesse informazioni su DOM sottoforma di stringhe
 
-BONUS 1:
+BONUS 1: (OK)
 Trasformare la stringa foto in una immagine effettiva
 
 BONUS 2:
@@ -75,15 +75,37 @@ for (let i = 0; i < team.length; i++) {
 }
 
 // stampo per ogni membro del team le informazioni sul DOM come stringhe
-for (let i = 0; i < team.length; i++) {
-    //console.log(`${i+1}° membro del team`)
-    document.body.innerHTML += `<br>${i+1}° membro del team<br>`;
-    for (let key in team[i]) {
-        //console.log(key, ":", team[i][key])
-        if (key === 'foto') {
-            document.body.innerHTML += `${key}:<br><img src="./assets/img/${team[i][key]}" alt=""><br>`
-        } else {
-            document.body.innerHTML += `${key}: ${team[i][key]}<br>`;
+// for (let i = 0; i < team.length; i++) {
+//     //console.log(`${i+1}° membro del team`)
+//     document.body.innerHTML += `<br>${i+1}° membro del team<br>`;
+//     for (let key in team[i]) {
+//         //console.log(key, ":", team[i][key])
+//         if (key === 'foto') {
+//             document.body.innerHTML += `${key}:<br><img src="./assets/img/${team[i][key]}" alt=""><br>`
+//         } else {
+//             document.body.innerHTML += `${key}: ${team[i][key]}<br>`;
+//         }
+//     }
+// }
+
+const cards = document.querySelectorAll('div.card');
+
+for (let i = 0; i < cards.length; i++){
+    const info = cards[i].querySelector('ul');
+    const image = cards[i].querySelector('img');
+    
+    for (let key in team[i]){
+        switch (key) {
+            case 'foto':
+                //cards[i].innerHTML += `<img src="./assets/img/${team[i]['foto']}" class="card-img-top">`;
+                image.setAttribute('src', `./assets/img/${team[i]['foto']}`);
+                break;
+            case 'nome':
+                info.innerHTML += `<li class="list-group-item">${key}: ${team[i]['nome']}</li>`;
+                break;
+            case 'ruolo':
+                info.innerHTML += `<li class="list-group-item">${key}: ${team[i]['ruolo']}</li>`;
+                break;
         }
     }
 }
