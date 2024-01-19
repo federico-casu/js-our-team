@@ -80,6 +80,10 @@ for (let i = 0; i < team.length; i++) {
     document.body.innerHTML += `<br>${i+1}° membro del team<br>`;
     for (let key in team[i]) {
         //console.log(key, ":", team[i][key])
-        document.body.innerHTML += `${key}: ${team[i][key]}<br>`;
+        if (key === 'foto') {
+            document.body.innerHTML += `${key}:<br><img src="./assets/img/${team[i][key]}" alt=""><br>`
+        } else {
+            document.body.innerHTML += `${key}: ${team[i][key]}<br>`;
+        }
     }
 }
