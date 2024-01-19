@@ -6,10 +6,10 @@ Ogni membro è caratterizzato dalle seguenti informazioni: nome, ruolo e foto.
 MILESTONE 0: (OK)
 Creare l’array di oggetti con le informazioni fornite.
 
-MILESTONE 1:
+MILESTONE 1: (OK)
 Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 
-MILESTONE 2:
+MILESTONE 2: (OK)
 Stampare le stesse informazioni su DOM sottoforma di stringhe
 
 BONUS 1:
@@ -68,8 +68,18 @@ const team = [
 
 // stampo per ogni membro del team le informazioni
 for (let i = 0; i < team.length; i++) {
-    console.log(`${i+1}° membro del team:`)
+    console.log(`${i+1}° membro del team`)
     for (let key in team[i]) {
-        console.log(team[i][key])
+        console.log(key, ":", team[i][key])
+    }
+}
+
+// stampo per ogni membro del team le informazioni sul DOM come stringhe
+for (let i = 0; i < team.length; i++) {
+    //console.log(`${i+1}° membro del team`)
+    document.body.innerHTML += `<br>${i+1}° membro del team<br>`;
+    for (let key in team[i]) {
+        //console.log(key, ":", team[i][key])
+        document.body.innerHTML += `${key}: ${team[i][key]}<br>`;
     }
 }
