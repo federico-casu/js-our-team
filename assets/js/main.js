@@ -15,7 +15,7 @@ Stampare le stesse informazioni su DOM sottoforma di stringhe
 BONUS 1: (OK)
 Trasformare la stringa foto in una immagine effettiva
 
-BONUS 2:
+BONUS 2: (OK)
 Organizzare i singoli membri in card/schede
 
 
@@ -101,10 +101,10 @@ for (let i = 0; i < cards.length; i++){
                 image.setAttribute('src', `./assets/img/${team[i]['foto']}`);
                 break;
             case 'nome':
-                info.innerHTML += `<li class="list-group-item">${key}: ${team[i]['nome']}</li>`;
+                info.innerHTML += `<li class="list-group-item"><h3>${team[i]['nome']}</h3></li>`;
                 break;
             case 'ruolo':
-                info.innerHTML += `<li class="list-group-item">${key}: ${team[i]['ruolo']}</li>`;
+                info.innerHTML += `<li class="list-group-item"><span>${team[i]['ruolo']}</span></li>`;
                 break;
         }
     }
