@@ -13,7 +13,7 @@
     <div class="container-fluid py-5">
         <div class="container d-flex flex-column justify-content-center align-items-center py-3" style="background-color: #6e2cf3;">
             <h1 class="text-white fw-bold" style="font-size: 100px;">Our Team</h1>
-            <div class="row justify-content-around gap-3 mt-4">
+            <div id="cardsContainer" class="row justify-content-around gap-3 mt-4">
                 <div class="card py-3 col-3" >
                     <img src="" class="card-img-top">
                     <ul class="list-group list-group-flush">
@@ -50,6 +50,52 @@
                       
                     </ul>
                 </div>
+            </div>
+            <div class="row text-white mt-5 w-50 justify-content-center">
+                <h2>Add team member</h2>
+                <div class="mb-3">
+                    <label for="newName" class="form-label">Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="newName"
+                        aria-describedby="helpId"
+                        placeholder=""
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="newRole" class="form-label">Role</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="newRole"
+                        aria-describedby="helpId"
+                        placeholder=""
+                    />
+                </div>
+                
+                <div class="mb-3">
+                    <label for="newImage" class="form-label">Image</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="newImage"
+                        aria-describedby="helpId"
+                        placeholder="Type here image's path or paste the link"
+                    />
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary w-auto"
+                    id="addBtn"
+                >
+                    Add
+                </button>
+                
+                
+
             </div>
         </div>
     </div>

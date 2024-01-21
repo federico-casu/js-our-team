@@ -89,6 +89,7 @@ for (let i = 0; i < team.length; i++) {
 // }
 
 const cards = document.querySelectorAll('div.card');
+const cardsContainerHtml = document.getElementById('cardsContainer');
 
 for (let i = 0; i < cards.length; i++){
     const info = cards[i].querySelector('ul');
@@ -109,3 +110,63 @@ for (let i = 0; i < cards.length; i++){
         }
     }
 }
+
+function newTeamMember(name, role, image) {
+    const member = {
+        'nome': name,
+        'ruolo': role,
+        'foto': image
+    }
+
+    return member;
+}
+
+function addMemberDom(member) {
+    if (member.foto.includes('http')) {
+        cardsContainerHtml.innerHTML += `
+            <div class="card py-3 col-3">
+                <img src="${member.foto}" class="card-img-top">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><h3>${member.nome}</h3></li>
+                    <li class="list-group-item"><span>${member.ruolo}</span></li>
+                </ul>
+            </div>
+        `;
+    } else {
+        cardsContainerHtml.innerHTML += `
+            <div class="card py-3 col-3">
+                <img src="./assets/img/${member.foto}" class="card-img-top">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><h3>${member.nome}</h3></li>
+                    <li class="list-group-item"><span>${member.ruolo}</span></li>
+                </ul>
+            </div>
+        `;
+    }
+
+    // const info = cards[cards.length-1].querySelector('ul');
+    // const image = cards[cards.length-1].querySelector('img');
+
+    // image.setAttribute('src', ``);
+    // info.innerHTML += ``;
+    // info.innerHTML += ``;
+}
+
+const addBtnHtml = document.getElementById('addBtn');
+
+addBtnHtml.addEventListener('click', function(){
+    const name = document.getElementById('newName');
+    const role = document.getElementById('newRole');
+    const image = document.getElementById('newImage');
+
+    console.log(name)
+    console.log(role)
+    console.log(image)
+
+    team.push(newTeamMember(name.value, role.value, image.value));
+    console.log(team);
+
+    addMemberDom(team[team.length-1]);
+});
+
+console.log(cardsContainerHtml);
